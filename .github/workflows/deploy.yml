@@ -1,0 +1,35 @@
+name: Deploy & Smoke Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build monorepo
+        run: npm run build --workspaces --if-present
+        
+      - name: Run Core Tests
+        run: npm run test -- --run
+        
+      - name: Serve and Smoke Test Staging Build
+        run: |
+          npm i -g serve puppeteer
+          cd examples/react-writing-studio
+          serve -s dist -l 3000 &
+          sleep 3
+          node smoke-test.mjs

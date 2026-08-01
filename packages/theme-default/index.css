@@ -1,0 +1,24 @@
+:root {
+  /* Color - Ink & Atlas */
+  --loom-paper: #EDE6D6;
+  --loom-paper-dim: #DED4BD;
+  --loom-ink: #1B1A17;
+  --loom-ink-soft: #4A473E;
+  --loom-manuscript: #151417;
+  --loom-manuscript-text: #E8E3D6;
+  --loom-seal: #A23B2E;
+  --loom-seal-dim: #C97A6C;
+  --loom-gold: #9C7A3C;
+
+  /* Typography */
+  --loom-font-ui: "Inter", system-ui, sans-serif;
+  --loom-font-display: "Source Serif 4", "Lora", serif;
+  --loom-font-mono: "JetBrains Mono", monospace;
+
+  /* Spacing */
+  --loom-spacing-base: 8px;
+  --loom-radius: 4px;
+
+  /* Shadows */
+  --loom-shadow-panel: 0 4px 12px rgba(27, 26, 23, 0.15);
+}
